@@ -12,6 +12,7 @@
 
 <script>
 import VueP5 from "vue-p5";
+import Walker from "../objects/walker";
 
 export default {
   name: "RandomWalk",
@@ -24,23 +25,33 @@ export default {
       p5: null,
       x: window.innerWidth * 0.8,
       y: 200,
-      randomWalk: `var Walker = function() {
-  this.x = width/2;
-  this.y = height/2;
+      walker: null,
+      randomWalk: `walk() {
+    var choice = floor(random(4));
+    if (choice === 0) {
+        this.x++;
+    } else if (choice === 1) {
+        this.x--;
+    } else if (choice === 2) {
+        this.y++;
+    } else {
+        this.y--;
+    } 
 };`,
     };
   },
   methods: {
     preload(p5) {
       this.p5 = p5;
+      this.walker = new Walker(this.x / 2, this.y / 2, this.p5);
     },
     setup() {
       this.p5.createCanvas(this.x, this.y);
-      this.p5.background(0);
+      this.p5.background(255);
     },
     draw() {
-      this.p5.background(0);
-      this.p5.ellipse(this.p5.mouseX, this.p5.mouseY, 100);
+      this.walker.walk();
+      this.walker.display();
     },
     keypressed(data) {},
   },
