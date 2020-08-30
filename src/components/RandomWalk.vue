@@ -1,9 +1,13 @@
 <template>
-  <div class="hello">
-    <h2>{{ msg }}</h2>
-    <vueP5 v-on="{preload, setup, draw, keypressed}" />
-    <pre v-highlightjs="randomWalk"><code class="javascript"></code></pre>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col>
+        <h2>{{ msg }}</h2>
+        <vueP5 v-on="{preload, setup, draw, keypressed}" />
+        <pre v-highlightjs="randomWalk"><code class="javascript"></code></pre>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -18,7 +22,7 @@ export default {
   data() {
     return {
       p5: null,
-      x: 200,
+      x: window.innerWidth * 0.8,
       y: 200,
       randomWalk: `var Walker = function() {
   this.x = width/2;
@@ -31,7 +35,7 @@ export default {
       this.p5 = p5;
     },
     setup() {
-      this.p5.createCanvas(400, 400);
+      this.p5.createCanvas(this.x, this.y);
       this.p5.background(0);
     },
     draw() {
