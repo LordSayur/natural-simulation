@@ -2,6 +2,7 @@
   <div class="hello">
     <h2>{{ msg }}</h2>
     <vueP5 v-on="{preload, setup, draw, keypressed}" />
+    <pre v-highlightjs="randomWalk"><code class="javascript"></code></pre>
   </div>
 </template>
 
@@ -19,6 +20,10 @@ export default {
       p5: null,
       x: 200,
       y: 200,
+      randomWalk: `var Walker = function() {
+  this.x = width/2;
+  this.y = height/2;
+};`,
     };
   },
   methods: {
