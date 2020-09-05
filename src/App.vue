@@ -76,3 +76,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.p5Canvas {
+  width: 100% !important;
+  border-radius: 1% 1%;
+}
+</style>

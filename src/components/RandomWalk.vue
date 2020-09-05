@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       p5: null,
-      x: window.innerWidth * 0.8,
+      x: window.innerWidth,
       y: 200,
       walker: null,
       randomWalk: `walk() {
