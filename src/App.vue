@@ -9,7 +9,9 @@
     </v-app-bar>
 
     <v-main>
-      <RandomWalk msg="Natural Simulation" />
+      <v-container>
+        <Home />
+      </v-container>
     </v-main>
 
     <v-navigation-drawer v-model="drawer" fixed temporary>
@@ -58,13 +60,13 @@
 </template>
 
 <script>
-import RandomWalk from "./components/RandomWalk";
+import Home from "./views/Home";
 
 export default {
   name: "App",
 
   components: {
-    RandomWalk,
+    Home,
   },
 
   data: () => ({
