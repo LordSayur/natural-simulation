@@ -1,25 +1,22 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h2>{{ msg }}</h2>
-        <vueP5 v-on="{preload, setup, draw, keypressed}" />
-        <pre v-highlightjs="randomWalk"><code class="javascript"></code></pre>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-row>
+    <v-col>
+      <h2>Randon walk version 1</h2>
+      <p>With 4 possible directions</p>
+      <vueP5 v-on="{preload, setup, draw, keypressed}" />
+      <pre v-highlightjs="randomWalk"><code class="javascript"></code></pre>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 import VueP5 from "vue-p5";
-import Walker from "../objects/walker";
+import Walker from "@/objects/walker";
 
 export default {
-  name: "RandomWalk",
+  name: "RandomWalkV1",
   components: { VueP5 },
-  props: {
-    msg: String,
-  },
+  props: {},
   data() {
     return {
       p5: null,
@@ -50,7 +47,7 @@ export default {
       this.p5.background(255);
     },
     draw() {
-      this.walker.walk();
+      this.walker.walkV1();
       this.walker.display();
     },
     keypressed(data) {},

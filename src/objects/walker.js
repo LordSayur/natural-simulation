@@ -10,7 +10,7 @@ export default class Walker {
 		this.p5.point(this.positionX, this.positionY);
 	}
 
-	walk() {
+	walkV1() {
 		let choice = this.p5.floor(this.p5.random(4));
 
 		if (choice === 0) {
@@ -22,5 +22,12 @@ export default class Walker {
 		} else {
 			this.positionY--;
 		}
+	}
+
+	walkV2() {
+		let stepX = this.p5.random(-1, 1);
+		let stepY = this.p5.random(-1, 1);
+		this.positionX += stepX;
+		this.positionY += stepY;
 	}
 }
